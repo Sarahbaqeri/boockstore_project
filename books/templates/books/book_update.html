@@ -1,0 +1,15 @@
+{% extends '_base.html' %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}book update {{ book.title }}{% endblock %}
+
+{% block content %}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value="save">
+        <a href="{% url 'book_create' %}">create new book</a>
+      <a href="{% url 'book_list' %}">all books list</a>
+    </form>
+{% endblock %}a

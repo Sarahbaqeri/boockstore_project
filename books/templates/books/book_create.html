@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}book create{% endblock %}
+
+{% block content %}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn btn-info" value="create"><a href="{% url 'book_list' %}">create</a></button>
+        <a href="{% url 'book_create' %}"> create new book</a>
+    </form>
+{% endblock %}a

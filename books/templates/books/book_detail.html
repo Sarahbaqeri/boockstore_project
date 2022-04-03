@@ -1,0 +1,19 @@
+{% extends '_base.html' %}
+
+{% block page_title %}book detail{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>{{ book.title|capfirst }}</h1>
+        <h2>{{ book.content|linebreaks }}</h2>
+        <h2>{{ book.author|capfirst }}</h2>
+        <h4>{{ book.price }}</h4>
+        <a href="{% url 'book_update' book.id %}">
+            <button type="button" class="btn btn-info">edit</button>
+        </a>
+        <a href="{% url 'book_delete' book.id %}">
+            <button type="button" class="btn btn-danger">delete</button>
+        </a>
+        <button class="btn btn-success"><a href="{% url 'book_list' %}"></a>all books list</button>
+    </div>
+{% endblock %}

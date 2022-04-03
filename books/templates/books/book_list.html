@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+
+{% block page_title %}book list{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% for book in books %}
+            <h1><a href="{{ book.get_absolute_url }}">{{ book.title|capfirst }}</a></h1>
+            <h5>{{ book.content|truncatewords:30 }}</h5>
+            <br>
+        {% endfor %}
+        <button class="btn btn-info"><a href="{% url 'book_create' %}">add new book</a></button>
+    </div>
+{% endblock %}
