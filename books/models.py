@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-from  django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model
 
 
 class Book(models.Model):
@@ -19,13 +19,13 @@ class Book(models.Model):
 
 class Comment(models.Model):
 
-    text = models.TextField
+    text = models.TextField(blank=True)
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     datetime_create = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.user} : {self.text}'
+        return self.text
 
 
 
