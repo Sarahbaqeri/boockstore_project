@@ -23,24 +23,24 @@
             <img src="{% static 'icons/book.png' %}" alt="" height="30"
                  class="d-inline-block align-text-top">
         </a>
-        <a class="navbar-brand mx-3" href="#">کتاب یار</a>
+        <a class="navbar-brand mx-3" href="{% url 'book_list' %}">BOOK STOR</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="{% url 'book_list' %}">خانه</a>
-                <a class="nav-link active" href="{% url 'book_create' %}">اضافه کردن کتاب</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'book_list' %}">Home</a>
+                <a class="nav-link active" href="{% url 'book_create' %}">Add new book</a>
             </div>
         </div>
         {% if user.is_authenticated %}
-            <div class="mx-2 text-white">خوش آمدی {{ user.username }}   |
-            <a class="link-light text-decoration-none" href="{% url 'logout' %}">خروج</a>
+            <div class="mx-2 text-white">Welcome {{ user.username }}   |
+            <a class="link-light text-decoration-none" href="{% url 'logout' %}">Exite</a>
             {% else %}
-            <a href="{% url 'login' %}">ورود</a>
+            <a href="{% url 'login' %}">login</a>
             <span> یا </span>
-            <a href="{% url 'signup' %}">ثبت نام</a>
+            <a href="{% url 'signup' %}">sign up</a>
 
         {% endif %}
 

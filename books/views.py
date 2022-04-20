@@ -4,6 +4,8 @@ from django.urls import reverse_lazy
 from .models import Book
 from django.shortcuts import get_object_or_404
 from .form import CommentForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 
 class BookListView(generic.ListView):
@@ -18,6 +20,7 @@ class BookListView(generic.ListView):
 #     template_name = 'books/book_detail.html'
 
 
+@login_required
 def book_detail_view(request, pk):
     book = get_object_or_404(Book, pk=pk)
     comment = book.comments.all()
@@ -39,7 +42,7 @@ def book_detail_view(request, pk):
     })
 
 
-class BookCreateView(generic.CreateView):
+class BookCreateView(LoginRequiredMixin, generic.CreateView):
     model = Book
     fields = ['title', 'author', 'content', 'price']
     template_name = 'books/book_create.html'
