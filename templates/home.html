@@ -1,11 +1,14 @@
 {% extends '_base.html' %}
 
 {% block content %}
-    <h1>welcome</h1>
-    {% if user.is_authenticated %}
-        <p> hello welcome {{ user.username }} || <a href="{% url 'logout' %}"> LOG OUT</a></p>
-    {% else %}
-        <<a href="{% url 'signup' %}"> SIGN UP</a> || <a href="{% url 'login' %}"> LOGIN</a>
-    {% endif %}
-
+    <div class="container m-3">
+        <div class="col-9">
+            <h1>welcome</h1>
+            {% if user.is_authenticated %}
+                <p> hello welcome {{ user.username }} || <a href="{% url 'logout' %}"> LOG OUT</a></p>
+            {% else %}
+                <<a href="{% url 'signup' %}"> SIGN UP</a> || <a href="{% url 'login' %}"> LOGIN</a>
+            {% endif %}
+        </div>
+    </div>
 {% endblock content %}
