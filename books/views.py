@@ -28,6 +28,7 @@ def book_detail_view(request, pk):
     if request.method == 'Post':
         comment_form = CommentForm(request.POST)
         if comment_form.is_valid():
+            print('hello')
             new_comment = comment_form.save(commit=False)
             new_comment.book = book
             new_comment.user = request.user
